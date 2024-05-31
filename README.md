@@ -5,7 +5,6 @@ The aim of this 42 School project is to output a text line by line to stdout eac
 ## 📋 Table of Contents
 
 - [Introduction](#-introduction)
-- [Installation](#️🛠️-installation)
 - [Usage](#️🎮-usage)
   - [Configuration](#configuration)
 - [Contributing](#🤝-contributing)
@@ -17,23 +16,28 @@ The video below shows a summary of the main concepts necessary to understand the
 
 https://github.com/efrutos/42Madrid_get_next_line/assets/52461710/2ad77971-cf19-4671-a35f-04a13ec326bf
 
-## 🛠️ Installation
+## 🛠️ Usage
 To get "get_next_line" project, follow these steps:
 
-1. **Clone the repository**
+1. **Requeriments**
+   The program is implemented in C and requires the GCC compiler along with standard C libraries to execute properly.
+   The main function included in this repository is not part of the project itself, but simply a way to test it. Feel free to use your own main function, and don't forget to add the #include “get_next_line.h” header at the top.
+   
+3. **Clone the repository**
 
 ```bash
-git clone https://github.com/your-username/my-awesome-project.git
+git clone https://github.com/efrutos/42Madrid_get_next_line.git get_next_line
 ```
 
 2. **Navigate to the project directory**
 
 ```bash
-cd my-awesome-project
+cd get_next_line
 ```
 
-3. **Install the dependencies**
+3. **Using**
 
 ```bash
-npm install
+gcc -Wall -Werror -Wextra -D BUFFER_SIZE=xx main.c get_next_line.c get_next_line_utils.c && ./a.out
 ```
+
