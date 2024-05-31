@@ -6,9 +6,9 @@ The aim of this 42 School project is to output a text line by line to stdout eac
 
 - [Introduction](#-introduction)
 - [Usage](#️-usage)
-  - [Requeriments](#-requeriments)
-  - [Clone](#-clone)
-  - [Navigate to the project directory](#navigate)
+  - [Requirements](#requirements)
+  - [Clone](#clone)
+  - [Navigate to the project directory](#navigate-to-the-project-directory)
   - [Use](#use)
 - [License](#-license)
 - [Contact](#-contact)
