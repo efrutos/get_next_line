@@ -6,8 +6,10 @@ The aim of this 42 School project is to output a text line by line to stdout eac
 
 - [Introduction](#-introduction)
 - [Usage](#️🎮-usage)
-  - [Configuration](#configuration)
-- [Contributing](#🤝-contributing)
+  - [Requeriments](#requeriments)
+  - [Clone the repositorie](#clone the repositorie)
+  - [Navigate to the project directory](#navigate to the project directory)
+  - [Use](#use)
 - [License](#📜-license)
 - [Contact](#📞-contact)
 
@@ -21,7 +23,8 @@ To get "get_next_line" project, follow these steps:
 
 1. **Requeriments**
    The program is implemented in C and requires the GCC compiler along with standard C libraries to execute properly.
-   The main function included in this repository is not part of the project itself, but simply a way to test it. Feel free to use your own main function, and don't forget to add the #include “get_next_line.h” header at the top.
+   The main function included in this repository is not part of the project itself, but simply a way to test it. Feel free to use your own main function, and don't forget to add the ‘#include “get_next_line.h” header at the top.
+   Also, the texts included in the test_gnl file are for testing purposes only, and are the ones used in the main function. Again, feel free to use your own test texts, as well as enter text for stdin.
    
 3. **Clone the repository**
 
@@ -35,7 +38,8 @@ git clone https://github.com/efrutos/42Madrid_get_next_line.git get_next_line
 cd get_next_line
 ```
 
-3. **Using**
+3. **Use**
+ Change "xx" with desired buffer size.
 
 ```bash
 gcc -Wall -Werror -Wextra -D BUFFER_SIZE=xx main.c get_next_line.c get_next_line_utils.c && ./a.out
