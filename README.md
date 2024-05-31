@@ -24,8 +24,10 @@ To get "get_next_line" project, follow these steps:
 1. **Requeriments**
 
    The program is implemented in C and requires the GCC compiler along with standard C libraries to execute properly.
+
    The main function included in this repository is not part of the project itself, but simply a way to test it. Feel free to use your own main function, and don't forget to add the ‘#include “get_next_line.h” header at the top.
-   Also, the texts included in the test_gnl file are for testing purposes only, and are the ones used in the main function. Again, feel free to use your own test texts, as well as enter text for stdin.
+
+    Also, the texts included in the test_gnl file are for testing purposes only, and are the ones used in the main function. Again, feel free to use your own test texts, as well as enter text for stdin.
    
 3. **Clone the repository**
 
