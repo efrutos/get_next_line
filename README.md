@@ -4,7 +4,7 @@ The aim of this 42 School project is to output a text line by line to stdout eac
 
 ## 📋 Table of Contents
 
-- [Introduction] (#-introduction)
+- [Introduction](#-introduction)
 - [Usage](#️🎮-usage)
   - [Requeriments](#requeriments)
   - [Clone](#clone)
@@ -46,4 +46,8 @@ To get "get_next_line" project, follow these steps:
   ```bash
   gcc -Wall -Werror -Wextra -D BUFFER_SIZE=xx main.c get_next_line.c get_next_line_utils.c && ./a.out
   ```
+
+## 📞 Contact
+
+- Email: [estrella.frutos@gmail.com](mailto:estrella.frutos@gmail.com)
 
