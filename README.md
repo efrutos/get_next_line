@@ -5,13 +5,13 @@ The aim of this 42 School project is to output a text line by line to stdout eac
 ## 📋 Table of Contents
 
 - [Introduction](#-introduction)
-- [Usage](#️🎮-usage)
+- [Usage](#️usage)
   - [Requeriments](#requeriments)
   - [Clone](#clone)
   - [Navigate to the project directory](#navigate)
   - [Use](#use)
-- [License](#📜-license)
-- [Contact](#📞-contact)
+- [License](#license)
+- [Contact](#contact)
 
 ## ✨ Introduction
 The video below shows a summary of the main concepts necessary to understand the project, such as the terms file descriptor or static variable, or the functions open(), read() and close(). At the end of the video, it is shown schematically how the programme works. 
