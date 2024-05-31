@@ -18,7 +18,9 @@ The video below shows a summary of the main concepts necessary to understand the
 
 
 
-https://github.com/efrutos/42Madrid_get_next_line/assets/52461710/529b5f4b-03a9-4fc4-9526-1ddf145c37a4
+https://github.com/efrutos/42Madrid_get_next_line/assets/52461710/3087598d-86d5-45c4-a04a-f349ea600803
+
+
 
 
 ## 🛠️ Usage
