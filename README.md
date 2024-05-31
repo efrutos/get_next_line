@@ -1,3 +1,6 @@
+# 📝 # <center>**get_next_line**<center>
+
+The aim of this 42 School project is to output a text line by line to stdout each time the function is called.
 
 
 
