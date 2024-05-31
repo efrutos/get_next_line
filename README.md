@@ -4,7 +4,7 @@ The aim of this 42 School project is to output a text line by line to stdout eac
 
 ## 📋 Table of Contents
 
-- [How it works](# -how it works)
+- [Introduction](#-introduction)
 - [Features](#✨-features)
 - [Installation](#️🛠️-installation)
 - [Usage](#️🎮-usage)
