@@ -5,14 +5,7 @@
 ## 📋 Table of Contents
 
 - [Introduction](#-introduction)
-- [Mandatory](#-mandatory)
-  - [Usage](#️-usage)
-    - [Requirements](#requirements)
-    - [Clone](#clone)
-    - [Navigate to the project directory](#navigate-to-the-project-directory)
-    - [Use](#use)
-- [Bonus](#-bonus)
-  - [Usage](#️-usage)
+- [Usage](#️-usage)
     - [Requirements](#requirements)
     - [Clone](#clone)
     - [Navigate to the project directory](#navigate-to-the-project-directory)
