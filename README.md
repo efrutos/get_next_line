@@ -5,11 +5,18 @@
 ## 📋 Table of Contents
 
 - [Introduction](#-introduction)
-- [Usage](#️-usage)
-  - [Requirements](#requirements)
-  - [Clone](#clone)
-  - [Navigate to the project directory](#navigate-to-the-project-directory)
-  - [Use](#use)
+- [Mandatory](#-mandatory)
+  - [Usage](#️-usage)
+    - [Requirements](#requirements)
+    - [Clone](#clone)
+    - [Navigate to the project directory](#navigate-to-the-project-directory)
+    - [Use](#use)
+- [Bonus](#-bonus)
+  - [Usage](#️-usage)
+    - [Requirements](#requirements)
+    - [Clone](#clone)
+    - [Navigate to the project directory](#navigate-to-the-project-directory)
+    - [Use](#use)
 - [License](#-license)
 - [Contact](#-contact)
 
