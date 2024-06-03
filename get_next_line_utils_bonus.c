@@ -5,12 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: estfruto <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 16:58:20 by estfruto          #+#    #+#             */
-/*   Updated: 2023/11/02 16:58:34 by estfruto         ###   ########.fr       */
+/*   Created: 2023/11/09 13:58:28 by estfruto          #+#    #+#             */
+/*   Updated: 2023/12/05 17:24:00 by estfruto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*buffer;
+	size_t	i;
+
+	buffer = malloc(count * size);
+	if (!buffer)
+	{
+		return (NULL);
+	}
+	else
+	{
+		i = 0;
+		while (i < count)
+		{
+			((unsigned char *)buffer)[i] = '\0';
+			i++;
+		}
+		return (buffer);
+	}
+}
 
 size_t	ft_strlen(const char *str)
 {
@@ -27,7 +49,7 @@ size_t	ft_strlen(const char *str)
 	return (len);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin_mod(char *s1, char *s2)
 {
 	char	*buffer;
 	int		i;
@@ -35,7 +57,7 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	buffer = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!buffer)
-		return (NULL);
+		return (free_temp (&s1));
 	i = 0;
 	while (s1 && s1[i])
 	{
@@ -47,7 +69,10 @@ char	*ft_strjoin(char *s1, char *s2)
 		buffer[i++] = s2[j++];
 	buffer[i] = '\0';
 	if (s1)
+	{
 		free(s1);
+		s1 = NULL;
+	}
 	return (buffer);
 }
 
@@ -68,33 +93,6 @@ char	*ft_strchr(const char *s, int c)
 	if (s[i] == (char)c)
 		return ((char *)(s + i));
 	return (NULL);
-}
-
-void	*ft_memmove(void *dst, const void *src, size_t n)
-{
-	int	i;
-
-	if (!dst && !src)
-		return (NULL);
-	if (dst > src)
-	{
-		i = (int)n - 1;
-		while (i >= 0)
-		{
-			*(unsigned char *)(dst + i) = *(unsigned char *)(src + i);
-			i--;
-		}
-	}
-	else
-	{
-		i = 0;
-		while (i < (int)n)
-		{
-			*(unsigned char *)(dst + i) = *(unsigned char *)(src + i);
-			i++;
-		}
-	}
-	return (dst);
 }
 
 char	*ft_strdup(char *s1)
