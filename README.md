@@ -22,6 +22,9 @@ https://github.com/efrutos/42Madrid_get_next_line/assets/52461710/3087598d-86d5-
 
 
 
+The main differences between the two versions of the get_next_line function (mandatory and bonus function) rely on how they handle multiple file descriptors (fd). 
+The get_next_line_bonus.c uses a static array temp[1024] to store the buffer associated with each file descriptor (fd). This allows get_next_line_bonus to manage multiple files simultaneously.
+However, the get_next_line function in the mandatory part of the project is not useful for managing multiple fd simultaneously because it uses a single static variable temp. This means it can only handle one file descriptor at a time, so if get_next_line is called with different fds successively, the previous state will be lost.
 
 ## 🛠️ Usage
 To get "get_next_line" project, follow these steps:
@@ -30,9 +33,9 @@ To get "get_next_line" project, follow these steps:
 
    The program is implemented in C and requires the GCC compiler along with standard C libraries to execute properly.
 
-   The main function included in this repository is not part of the project itself, but simply a way to test it. Feel free to use your own main function, and don't forget to add the ‘#include “get_next_line.h” header at the top.
+   The main functions (test.c and test_bonus.c) included in this repository is not part of the project itself, but simply a way to test it. Feel free to use your own main function, and don't forget to add the ‘#include “get_next_line.h” header at the top for the mandatory function, or ‘#include “get_next_line_bonus.h” for the bonus part.
 
-    Also, the texts included in the test_gnl file are for testing purposes only, and are the ones used in the main function. Again, feel free to use your own test texts, as well as enter text for stdin (initialising fd to 1).
+    Also, the texts included in the test_gnl file are for testing purposes only, and are the ones used in the main functions. Again, feel free to use your own test texts, as well as enter text for stdin (initialising fd to 1).
    
 3. **Clone the repository**
 
@@ -48,11 +51,15 @@ To get "get_next_line" project, follow these steps:
 
 3. **Use**
  
- Change "xx" with desired buffer size.
+ Change "xx" with desired buffer size. If you do not include the BUFFER_SIZE option, the program will use a buffer size of 10.
 
   ```bash
-  gcc -Wall -Werror -Wextra -D BUFFER_SIZE=xx main.c get_next_line.c get_next_line_utils.c && ./a.out
+  gcc -Wall -Werror -Wextra -D BUFFER_SIZE=xx test.c get_next_line.c get_next_line_utils.c && ./a.out
   ```
+Bonus: 
+```bash
+  gcc -Wall -Werror -Wextra -D BUFFER_SIZE=xx test_bonus.c get_next_line_bonus.c get_next_line_utils_bonus.c && ./a.out
+```
 
 ## 📞 Contact
 
