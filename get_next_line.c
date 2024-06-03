@@ -6,38 +6,24 @@
 /*   By: estfruto <estfruto@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 08:56:36 by estfruto          #+#    #+#             */
-/*   Updated: 2023/11/02 18:16:30 by estfruto         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:28:12 by estfruto         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 15
-#endif
-
-void	*ft_calloc(size_t count, size_t size)
+/*
+ * Function to free reserved memory for temp variable
+*/
+char	*free_temp(char	**str)
 {
-	void	*buffer;
-	size_t	i;
-
-	buffer = malloc(count * size);
-	if (!buffer)
-		return (NULL);
-	else
-	{
-		i = 0;
-		while (i < count)
-		{
-			((unsigned char *)buffer)[i] = '\0';
-			i++;
-		}
-		return (buffer);
-	}
+	free (*str);
+	*str = NULL;
+	return (NULL);
 }
 
 /*
- * Function to update temp
+ * Function to update temp once full_line has been obtained
 */
 char	*rest_line(char *temp)
 {
@@ -50,25 +36,27 @@ char	*rest_line(char *temp)
 	while (temp[i] && temp[i] != '\n')
 		i++;
 	if (!temp[i])
-		return (free(temp), NULL);
+		return (free_temp (&temp));
 	buffer = (char *) malloc(ft_strlen(temp) - i);
 	if (!buffer)
-		return (free(temp), NULL);
+		return (free_temp (&temp));
 	i++;
 	while (temp[i])
 		buffer[j++] = temp[i++];
 	buffer[j] = '\0';
-	free(temp);
+	free (temp);
+	temp = NULL;
 	return (buffer);
 }
 
 /*
- * Function to obtain the new_line
+ *Function to obtain a complete full line
 */
 char	*full_line(char	*temp)
 {
 	char	*line;
 	size_t	line_len;
+	size_t	i;
 
 	line_len = 0;
 	while (temp[line_len] && temp[line_len] != '\n')
@@ -79,14 +67,20 @@ char	*full_line(char	*temp)
 	line = (char *)ft_calloc(line_len + 1, sizeof(char));
 	if (!line)
 		return (NULL);
-	line = ft_memmove(line, temp, line_len);
+	i = 0;
+	while (i < line_len)
+	{
+		line[i] = temp[i];
+		i++;
+	}
 	if (!line)
-		free (line);
+		return (NULL);
 	return (line);
 }
 
 /*
- * Funtion to read an opened file. It uses read() to read  
+ * Funtion to read a file previously opened in main function. 
+ * It uses read() to read  
 */
 char	*read_buffer(int fd, char *temp)
 {
@@ -95,19 +89,25 @@ char	*read_buffer(int fd, char *temp)
 
 	buffer = (char *)ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (!buffer)
-		return (NULL);
+		return (free_temp (&temp));
 	rbytes = 1;
 	while (!ft_strchr(temp, '\n') && rbytes > 0)
 	{
 		rbytes = read(fd, buffer, BUFFER_SIZE);
 		if (rbytes < 0)
-			return (free(buffer), free(temp), NULL);
+		{
+			free(buffer);
+			return (free_temp (&temp));
+		}
 		if (rbytes == 0)
-			return (free(buffer), temp);
+		{
+			free(buffer);
+			return (temp);
+		}
 		buffer[rbytes] = '\0';
-		temp = ft_strjoin(temp, buffer);
+		temp = ft_strjoin_mod(temp, buffer);
 	}
-	free(buffer);
+	free (buffer);
 	return (temp);
 }
 
@@ -120,47 +120,19 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (free(temp), temp = NULL, NULL);
+		return (free_temp (&temp));
 	if ((temp && !ft_strchr(temp, '\n')) || !temp)
 		temp = read_buffer(fd, temp);
 	if (!temp)
 		return (NULL);
 	line = full_line(temp);
+	if (!line)
+		return (free_temp (&temp));
 	temp = rest_line(temp);
 	if (temp && !temp[0])
 	{
-		free(temp);
+		free (temp);
 		temp = NULL;
 	}
 	return (line);
 }
-
-/*
- * Main para testar 
-*/
-/*
-void leaks(void)
-{
-	system("leaks -q a.out");
-}
-
-int	main(void)
-{
-	int 	fd;
-	char	*new_line;
-
-	atexit(leaks);
-
-	// Open file to obtain fd
-	fd = open("file.txt", O_RDONLY);
-	new_line = get_next_line(fd);
-	free(new_line);
-	new_line = get_next_line(fd);
-	free(new_line);
-	new_line = get_next_line(fd);
-	free(new_line);
-	
-	// Cerramos el fd
-	close(fd);
-	return (0);
-}*/
