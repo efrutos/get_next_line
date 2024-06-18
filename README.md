@@ -35,7 +35,7 @@ To get "get_next_line" project, follow these steps:
 
    The main functions (test.c and test_bonus.c) included in this repository is not part of the project itself, but simply a way to test it. Feel free to use your own main function, and don't forget to add the ‘#include “get_next_line.h” header at the top for the mandatory function, or ‘#include “get_next_line_bonus.h” for the bonus part.
 
-    Also, the texts included in the test_gnl file are for testing purposes only, and are the ones used in the main functions. Again, feel free to use your own test texts, as well as enter text for stdin (initialising fd to 1).
+    Also, the texts included in the test_gnl directory are for testing purposes only, and are the ones used in the main functions. Again, feel free to use your own test texts, as well as enter text for stdin (initialising fd to 1).
    
 3. **Clone the repository**
 
